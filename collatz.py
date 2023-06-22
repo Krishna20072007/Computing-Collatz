@@ -34,7 +34,7 @@ def save_to_excel(collatz_dict, start, end):
     workbook = openpyxl.load_workbook(filename)
     worksheet = workbook.active
 
-    row = worksheet.max_row + 1  # Append rows to the existing file
+    row = worksheet.max_row + 1
 
     for num, sequence in collatz_dict.items():
         worksheet.cell(row=row, column=1).value = num
@@ -77,7 +77,7 @@ def main():
 
     for i in range(start, end + 1):
         sequence = collatz(i, collatz_dict)
-        del collatz_dict[i]  # Remove the sequence from memory after saving
+        del collatz_dict[i]
 
     save_to_excel(collatz_dict, start, end)
 
