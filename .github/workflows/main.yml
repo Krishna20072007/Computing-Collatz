@@ -1,0 +1,34 @@
+name: Run Collatz Calculation
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  run-code:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x
+    - name: Install openpyxl
+      run: pip install openpyxl
+
+    - name: Run Python script
+      run: |
+        python collatz.py
+
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "krishnakashab@gmail.com"
+        git config --local user.name "GitHub Action"
+        git add Excels/
+        git add Steps/
+        git commit -m "Auto-generated output files"
+        git push
