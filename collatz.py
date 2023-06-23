@@ -3,7 +3,7 @@ import openpyxl
 import sys
 
 add = 166440
-start = 2**70+(add*23)
+start = 2**70+(add*24)
 end = start+add 
 
 def collatz(x, collatz_dict):
