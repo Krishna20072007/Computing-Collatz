@@ -48,5 +48,5 @@ def collatz_to_excel(filename, start_num, max_rows, start, end):
 
 # Example usage
 start = 1
-end = 100000
+end = 2**20
 collatz_to_excel("Excels/collatz_steps.xlsx", 1, 100, start, end)
