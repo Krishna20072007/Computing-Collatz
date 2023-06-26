@@ -23,6 +23,10 @@ def write_to_excel(filename, data):
     wb.close()
 
 def collatz_to_excel(filename, start_num, max_rows, start, end):
+    directory = os.path.dirname(filename)
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+
     if not os.path.isfile(filename):
         wb = Workbook()
         wb.active.title = "Sheet1"
@@ -43,6 +47,6 @@ def collatz_to_excel(filename, start_num, max_rows, start, end):
     wb.close()
 
 # Example usage
-start=1
-end=2**20
+start = 1
+end = 100000
 collatz_to_excel("Excels/collatz_steps.xlsx", 1, 100, start, end)
