@@ -33,17 +33,17 @@ def collatz_to_excel(filename, start_num, max_rows, start, end, batch_size=100):
 
     current_row = start_num
 
-    for num in range(start_num, start_num + max_rows):
-        steps = collatz_steps(num, start, end)
+    while current_row <= end and current_row < start_num + max_rows:
+        steps = collatz_steps(current_row, start, end)
         if steps > 0:
-            write_to_excel(filename, num, steps)
-            current_row += 1
+            write_to_excel(filename, current_row, steps)
             if current_row % batch_size == 0:
                 print(f"Numbers written: {current_row}")
+        current_row += 1
 
     print("All numbers written!")
 
 # Example usage
 start = 1
-end = 2**20
-collatz_to_excel("Excels/collatz_steps.xlsx", 1, 100, start, end)
+end = 100
+collatz_to_excel("Excels/collatz_steps.xlsx", start, end, start, end)
