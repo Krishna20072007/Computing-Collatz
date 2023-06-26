@@ -11,18 +11,20 @@ def collatz_steps(n, start, end):
         steps += 1
     return steps
 
-def write_to_excel(filename, data):
+def write_to_excel(filename, data_list):
     wb = load_workbook(filename)
     sheet = wb.active
-    row = 1
-    while sheet.cell(row=row, column=1).value is not None:
+    row = sheet.max_row + 1
+
+    for data in data_list:
+        sheet.cell(row=row, column=1).value = data[0]
+        sheet.cell(row=row, column=2).value = data[1]
         row += 1
-    sheet.cell(row=row, column=1).value = data[0]
-    sheet.cell(row=row, column=2).value = data[1]
+
     wb.save(filename)
     wb.close()
 
-def collatz_to_excel(filename, start_num, max_rows, start, end):
+def collatz_to_excel(filename, start_num, max_rows, start, end, batch_size=100):
     directory = os.path.dirname(filename)
     if not os.path.exists(directory):
         os.makedirs(directory)
@@ -37,11 +39,19 @@ def collatz_to_excel(filename, start_num, max_rows, start, end):
     sheet = wb.active
     current_row = sheet.max_row + 1
 
+    data_batch = []
     for num in range(start_num, start_num + max_rows):
         steps = collatz_steps(num, start, end)
         if steps > 0:
-            write_to_excel(filename, (num, steps))
-            current_row += 1
+            data_batch.append((num, steps))
+
+        if len(data_batch) == batch_size:
+            write_to_excel(filename, data_batch)
+            data_batch = []
+
+    # Write any remaining data in the batch
+    if data_batch:
+        write_to_excel(filename, data_batch)
 
     wb.save(filename)
     wb.close()
