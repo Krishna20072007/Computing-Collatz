@@ -6,8 +6,8 @@ add = 166440
 # start = 2**70+(add*24)
 # end = start+add 
 
-start = 2**70
-end = 2**70+add*24+add
+start = 1
+end = 2**20
 
 def collatz(x):
     sequence = [x]
