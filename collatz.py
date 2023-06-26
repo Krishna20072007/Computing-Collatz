@@ -1,4 +1,5 @@
-import openpyxl
+import os.path
+from openpyxl import Workbook, load_workbook
 
 def collatz_steps(n):
     steps = 0
@@ -11,7 +12,7 @@ def collatz_steps(n):
     return steps
 
 def write_to_excel(filename, data):
-    wb = openpyxl.load_workbook(filename)
+    wb = load_workbook(filename)
     sheet = wb.active
     row = 1
     while sheet.cell(row=row, column=1).value is not None:
@@ -19,18 +20,18 @@ def write_to_excel(filename, data):
     sheet.cell(row=row, column=1).value = data[0]
     sheet.cell(row=row, column=2).value = data[1]
     wb.save(filename)
+    wb.close()
 
 def collatz_to_excel(filename, start_num, max_rows):
-    try:
-        wb = openpyxl.load_workbook(filename)
-    except FileNotFoundError:
-        wb = openpyxl.Workbook()
+    if not os.path.isfile(filename):
+        wb = Workbook()
         wb.active.title = "Sheet1"
+        wb.save(filename)
+        wb.close()
 
+    wb = load_workbook(filename)
     sheet = wb.active
-    current_row = 1
-    while sheet.cell(row=current_row, column=1).value is not None:
-        current_row += 1
+    current_row = sheet.max_row + 1
 
     for num in range(start_num, start_num + max_rows):
         steps = collatz_steps(num)
