@@ -41,4 +41,4 @@ def collatz_to_excel(filename, start, end):
 # Example usage
 start = 1
 end = 2**20
-collatz_to_excel("Excels/collatz_steps.xlsx", start-1, end)
+collatz_to_excel("Excels/collatz_steps.xlsx", start, end)
