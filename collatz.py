@@ -23,7 +23,7 @@ def write_to_excel(filename, data):
         sheet = wb.active
         for row_data in data:
             sheet.append(row_data)
-            print(row_data[0])  # Print the number
+            print("Number written:", row_data[0])  # Print the number
         wb.save(filename)
         wb.close()
 
@@ -37,6 +37,7 @@ def collatz_to_excel(filename, start, end):
         steps = collatz_steps(num)
         if steps > 0:
             data_to_write.append([num, steps])
+            print("Processing number:", num)  # Print the number being processed
 
     if data_to_write:
         write_to_excel(filename, data_to_write)
@@ -44,6 +45,6 @@ def collatz_to_excel(filename, start, end):
     print("All numbers written!")
     print("Process complete.")
 
-start = 2**23
-end = 2**24
+start = 2**20
+end = 2**21
 collatz_to_excel(f"Excels/collatz_steps {start} to {end}.xlsx", start, end)
