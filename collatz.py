@@ -1,9 +1,9 @@
-import os.path
+import os
 from openpyxl import Workbook, load_workbook
 
-def collatz_steps(n, start, end):
+def collatz_steps(n):
     steps = 0
-    while n != 1 and n >= start and n <= end:
+    while n != 1:
         if n % 2 == 0:
             n = n // 2
         else:
@@ -11,39 +11,38 @@ def collatz_steps(n, start, end):
         steps += 1
     return steps
 
-def write_to_excel(filename, num, steps):
+def write_to_excel(filename, data):
     wb = load_workbook(filename)
     sheet = wb.active
-    row = sheet.max_row + 1
-    sheet.cell(row=row, column=1).value = num
-    sheet.cell(row=row, column=2).value = steps
+    for row_data in data:
+        sheet.append(row_data)
     wb.save(filename)
     wb.close()
 
-def collatz_to_excel(filename, start_num, max_rows, start, end, batch_size=100):
+def collatz_to_excel(filename, start, end):
     directory = os.path.dirname(filename)
-    if not os.path.exists(directory):
-        os.makedirs(directory)
+    os.makedirs(directory, exist_ok=True)
 
     if not os.path.isfile(filename):
         wb = Workbook()
         wb.active.title = "Sheet1"
         wb.save(filename)
         wb.close()
+        write_to_excel(filename, [["Number", "Steps"]])  # Add headers to the sheet
 
-    current_row = start_num
+    data_to_write = []
 
-    while current_row <= end and current_row < start_num + max_rows:
-        steps = collatz_steps(current_row, start, end)
+    for num in range(start, end+1):
+        steps = collatz_steps(num)
         if steps > 0:
-            write_to_excel(filename, current_row, steps)
-            if current_row % batch_size == 0:
-                print(f"Numbers written: {current_row}")
-        current_row += 1
+            data_to_write.append([num, steps])
+
+    if data_to_write:
+        write_to_excel(filename, data_to_write)
 
     print("All numbers written!")
 
 # Example usage
 start = 1
-end = 2**10
-collatz_to_excel("Excels/collatz_steps.xlsx", start, end, start, end)
+end = 2**20
+collatz_to_excel("Excels/collatz_steps.xlsx", start-1, end)
