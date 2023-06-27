@@ -23,6 +23,7 @@ def write_to_excel(filename, data):
         sheet = wb.active
         for row_data in data:
             sheet.append(row_data)
+            print(row_data[0])  # Print the number
         wb.save(filename)
         wb.close()
 
