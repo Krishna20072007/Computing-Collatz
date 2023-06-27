@@ -41,6 +41,7 @@ def collatz_to_excel(filename, start, end):
         write_to_excel(filename, data_to_write)
 
     print("All numbers written!")
+    print("Process complete.")
 
 start = 1
 end = 2**20
