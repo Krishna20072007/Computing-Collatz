@@ -30,15 +30,11 @@ def collatz_to_excel(filename, start, end):
         wb.close()
         write_to_excel(filename, [["Number", "Steps"]])  # Add headers to the sheet
 
-    data_to_write = []
-
     for num in range(start, end+1):
         steps = collatz_steps(num)
         if steps > 0:
-            data_to_write.append([num, steps])
-
-    if data_to_write:
-        write_to_excel(filename, data_to_write)
+            write_to_excel(filename, [[num, steps]])
+            print(f"Number written: {num}")
 
     print("All numbers written!")
 
