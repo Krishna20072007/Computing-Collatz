@@ -27,17 +27,23 @@ def write_to_excel(filename, data):
         wb.save(filename)
         wb.close()
 
-def collatz_to_excel(filename, start, end):
+def collatz_to_excel(filename, start, end, batch_size=1000):
     directory = os.path.dirname(filename)
     os.makedirs(directory, exist_ok=True)
 
     data_to_write = []
+    processed_count = 0
 
     for num in range(start, end+1):
         steps = collatz_steps(num)
         if steps > 0:
             data_to_write.append([num, steps])
-            print("Processing number:", num)  # Print the number being processed
+            processed_count += 1
+
+        if len(data_to_write) == batch_size:
+            write_to_excel(filename, data_to_write)
+            data_to_write = []
+            print(f"{processed_count} numbers written so far.")
 
     if data_to_write:
         write_to_excel(filename, data_to_write)
