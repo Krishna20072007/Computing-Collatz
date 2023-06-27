@@ -44,6 +44,6 @@ def collatz_to_excel(filename, start, end):
     print("All numbers written!")
     print("Process complete.")
 
-start = 2**22
-end = 2**23
+start = 2**23
+end = 2**24
 collatz_to_excel(f"Excels/collatz_steps {start} to {end}.xlsx", start, end)
