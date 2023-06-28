@@ -43,13 +43,11 @@ def collatz_to_excel(filename, start, end, batch_size=1000):
         if len(data_to_write) == batch_size:
             write_to_excel(filename, data_to_write)
             data_to_write = []
-            print(f"{processed_count} numbers written so far.")
 
     if data_to_write:
         write_to_excel(filename, data_to_write)
 
     print("All numbers written!")
-    print("Process complete.")
 
 start = 1
 end = 2**15
