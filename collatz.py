@@ -1,3 +1,4 @@
+print("Starting now")
 import os.path
 from openpyxl import Workbook, load_workbook
 
