@@ -28,20 +28,17 @@ def write_to_excel(filename, data):
         wb.save(filename)
         wb.close()
 
-def collatz_to_excel(filename, start, end, batch_size=10):
+def collatz_to_excel(filename, start, end):
     directory = os.path.dirname(filename)
     os.makedirs(directory, exist_ok=True)
 
     data_to_write = []
-    processed_count = 0
 
-    for num in range(start-1000, end+1):
+    for num in range(start, end+1):
         steps = collatz_steps(num)
-        if steps > 0:
-            data_to_write.append([num, steps])
-            processed_count += 1
+        data_to_write.append([num, steps])
 
-        if len(data_to_write) == batch_size:
+        if len(data_to_write) >= 10:
             write_to_excel(filename, data_to_write)
             data_to_write = []
 
@@ -51,5 +48,5 @@ def collatz_to_excel(filename, start, end, batch_size=10):
     print("All numbers written!")
 
 start = 1
-end = 2**15
+end = 2**10
 collatz_to_excel(f"Excels/collatz_steps {start} to {end}.xlsx", start, end)
