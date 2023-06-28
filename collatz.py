@@ -34,7 +34,7 @@ def collatz_to_excel(filename, start, end, batch_size=1000):
     data_to_write = []
     processed_count = 0
 
-    for num in range(start, end+1):
+    for num in range(start-1000, end+1):
         steps = collatz_steps(num)
         if steps > 0:
             data_to_write.append([num, steps])
