@@ -51,6 +51,6 @@ def collatz_to_excel(filename, start, end, batch_size=1000):
     print("All numbers written!")
     print("Process complete.")
 
-start = 2**20
-end = 2**21
+start = 1
+end = 2**20
 collatz_to_excel(f"Excels/collatz_steps {start} to {end}.xlsx", start, end)
