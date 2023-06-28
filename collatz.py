@@ -42,7 +42,7 @@ def collatz_to_excel(filename, start, end):
 
     print("All numbers written!")
 
-start = 1
-end = 2**12
+start = 2**12
+end = 2**14
 start_time = time.time()
 collatz_to_excel(f"Excels/collatz_steps {start} to {end}.xlsx", start, end)
