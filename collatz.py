@@ -38,7 +38,7 @@ def collatz_to_excel(filename, start, end):
         steps = collatz_steps(num)
         data_to_write.append([num, steps])
 
-        if len(data_to_write) >= 10:
+        if len(data_to_write) > 0:  # Write as long as there is at least one number to write
             write_to_excel(filename, data_to_write)
             data_to_write = []
 
