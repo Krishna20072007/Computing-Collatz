@@ -28,7 +28,7 @@ def write_to_excel(filename, data):
         wb.save(filename)
         wb.close()
 
-def collatz_to_excel(filename, start, end, batch_size=1000):
+def collatz_to_excel(filename, start, end, batch_size=10):
     directory = os.path.dirname(filename)
     os.makedirs(directory, exist_ok=True)
 
