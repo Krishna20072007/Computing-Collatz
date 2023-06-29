@@ -3,8 +3,8 @@ import openpyxl
 import matplotlib.pyplot as plt
 import numpy as np
 
-start = 42000
-end = 65536
+start = 65536
+end = 93300
 desired_width = 10000 * 35  # Width in pixels
 desired_dpi = 80  # Adjust this value to reduce the image size
 
@@ -45,7 +45,7 @@ for i in range(len(x_values)):
         x_values[i], y_values[i]), xytext=(5, 5), textcoords='offset points')
 
 # Save the graph as an SVG file with the same name as the Excel file
-svg_filename = f'collatz_steps {start} to {end}.svg'
+svg_filename = f'SVG/collatz_steps {start} to {end}.svg'
 plt.savefig(svg_filename, format='svg')
 
 # Close the workbook
