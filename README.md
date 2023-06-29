@@ -1,1 +1,1 @@
-[1-4096](<Excels/collatz_steps 1 to 4096.xlsx>)
+![1-4096](<SVG/collatz_steps 1 to 4096.svg>) ![4096-16384](<SVG/collatz_steps 4096 to 16384.svg>)
