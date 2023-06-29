@@ -1,3 +1,4 @@
+print('Starting Now')
 import time
 import os.path
 from openpyxl import Workbook, load_workbook
@@ -42,7 +43,7 @@ def collatz_to_excel(filename, start, end):
 
     print("All numbers written!")
 
-start = 42000
-end = 2**16
+start = 2**16
+end = 2**17
 start_time = time.time()
 collatz_to_excel(f"Excels/collatz_steps {start} to {end}.xlsx", start, end)

@@ -1,1 +1,1 @@
-![1-4096](<SVG/collatz_steps 1 to 4096.svg>) ![4096-16384](<SVG/collatz_steps 4096 to 16384.svg>)
+![1-4096](<SVG/collatz_steps 1 to 4096.svg>) ![4096-16384](<SVG/collatz_steps 4096 to 16384.svg>)![16384-42000](<SVG/collatz_steps 16384 to 42000.svg>)
