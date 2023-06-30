@@ -3,7 +3,7 @@ import openpyxl
 import matplotlib.pyplot as plt
 import numpy as np
 
-start = 93300
+start = 123503
 end = 131072
 desired_width = 10000 * 35  # Width in pixels
 desired_dpi = 80  # Adjust this value to reduce the image size
