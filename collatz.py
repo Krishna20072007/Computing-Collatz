@@ -22,7 +22,7 @@ def write_to_excel(filename, data):
         wb = load_workbook(filename)
         sheet = wb.active
     sheet.append(data)
-    print("Number written:", data[0])  # Print the number
+    print(data[0])  # Print the number
     wb.save(filename)
 
 def collatz_to_excel(filename, start, end):
@@ -43,7 +43,7 @@ def collatz_to_excel(filename, start, end):
 
     print("All numbers written!")
 
-start = 188374
+start = 218942
 end = 2**18
 start_time = time.time()
 collatz_to_excel(f"Excels/collatz_steps {start} to {end}.xlsx", start, end)
