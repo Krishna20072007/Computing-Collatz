@@ -17,12 +17,12 @@ def write_to_excel(filename, data):
     if not os.path.isfile(filename):
         wb = Workbook()
         sheet = wb.active
-        sheet.append(["Number", "Steps"])  # Add header directly
+        sheet.append(["Number", "Steps"])
     else:
         wb = load_workbook(filename)
         sheet = wb.active
     sheet.append(data)
-    print(data[0])  # Print the number
+    print(data[0])
     wb.save(filename)
 
 def collatz_to_excel(filename, start, end):
@@ -43,7 +43,7 @@ def collatz_to_excel(filename, start, end):
 
     print("All numbers written!")
 
-start = 2**18
+start = 292115
 end = 2**19
 start_time = time.time()
 collatz_to_excel(f"Excels/collatz_steps {start} to {end}.xlsx", start, end)
