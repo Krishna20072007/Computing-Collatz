@@ -44,6 +44,6 @@ def collatz_to_excel(filename, start, end):
     print("All numbers written!")
 
 start = 1000000
-end = start + 100000
+end = start + 200000
 start_time = time.time()
 collatz_to_excel(f"Excels/collatz_steps {start} to {end}.xlsx", start, end)
