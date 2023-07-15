@@ -14,7 +14,7 @@ Various computational methods have been employed to explore the behavior of the 
 
 This repository contains a collection of Excel files that offer information about the number of steps needed to reach 1 for specific ranges of initial values. These files serve as a record of the computational exploration of the Collatz Conjecture and provide a comprehensive overview of the sequence behavior. You can access the Excel files using the links provided below:
 
-[Click Here](https://view.officeapps.live.com/op/view.aspx?src=https://github.com/Krishna20072007/Computing-Collatz/raw/master/Excels/1%20-%201100000.xlsx)
+[Click Here](https://view.officeapps.live.com/op/view.aspx?src=https://github.com/Krishna20072007/Computing-Collatz/raw/master/Excels/Compiled%20Numbers.xlsx)
 
 ## Conclusion
 
