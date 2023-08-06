@@ -1,4 +1,4 @@
-The Collatz Conjecture, also known as the 3n + 1 problem or the hailstone sequence, is an unsolved mathematical problem that has intrigued mathematicians for decades. The conjecture is named after the German mathematician Lothar Collatz, who first proposed it in 1937. Despite its simplicity, the problem remains unsolved, making it one of the most notorious unsolved problems in mathematics.
+The Collatz Conjecture, also known as the 3n + 1 problem or the Hailstone sequence, is an unsolved mathematical problem that has intrigued mathematicians for decades. The conjecture is named after the German mathematician Lothar Collatz, who first proposed it in 1937. Despite its simplicity, the problem remains unsolved, making it one of the most notorious unsolved problems in mathematics.
 
 ## The Conjecture
 
@@ -14,7 +14,7 @@ Various computational methods have been employed to explore the behavior of the 
 
 This repository contains a collection of Excel files that offer information about the number of steps needed to reach 1 for specific ranges of initial values. These files serve as a record of the computational exploration of the Collatz Conjecture and provide a comprehensive overview of the sequence behavior. You can access the Excel files using the links provided below:
 
-[Click Here](https://view.officeapps.live.com/op/view.aspx?src=https://github.com/Krishna20072007/Computing-Collatz/raw/master/Excels/Compiled%20Numbers.xlsx)
+[Click Here](https://github.com/Krishna20072007/Computing-Collatz/raw/master/Excels/Compiled%20Numbers.xlsx)
 
 ## Conclusion
 
