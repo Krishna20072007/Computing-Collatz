@@ -43,7 +43,7 @@ def collatz_to_excel(filename, start, end):
 
     print("All numbers written!")
 
-start = 35_35_000
+start = 35_40_000
 # Adder is in 5_000
 end = start + 5000 
 start_time = time.time()
